@@ -1,7 +1,13 @@
-function sort(array, less) {
+/***
+ * быстрая сортировка
+ * http://rosettacode.org/wiki/Sorting_algorithms/Bubble_sort#JavaScript
+ * */
+
+
+function quickSort(array, less) {
 
   function swap(i, j) {
-    var t = array[i];
+    const t = array[i];
     array[i] = array[j];
     array[j] = t;
   }
@@ -9,9 +15,9 @@ function sort(array, less) {
   function quicksort(left, right) {
 
     if (left < right) {
-      var pivot = array[left + Math.floor((right - left) / 2)],
-          left_new = left,
-          right_new = right;
+      const pivot = array[left + Math.floor((right - left) / 2)];
+      let left_new = left;
+      let right_new = right;
 
       do {
         while (less(array[left_new], pivot)) {
@@ -38,4 +44,4 @@ function sort(array, less) {
   return array;
 }
 
-module.exports = sort;
+module.exports = quickSort;

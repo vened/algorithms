@@ -3,11 +3,11 @@ const getNumberArray = require('./lib/getNumberArray');
 const sortingByBubble = require('./algorithmsSorting/sortingByBubble');
 const quickSort = require('./algorithmsSorting/quickSort');
 
-const sourceArray = getNumberArray(10000000, 9999999);
+const sourceArray = getNumberArray(10000, 9999999);
 
 console.log('сортировка встроенная');
 const t01 = performance.now();
-const sortedArray2 = sourceArray.sort(function compareNumbers(a, b) {
+sourceArray.sort(function compareNumbers(a, b) {
   return a - b;
 });
 const t02 = performance.now();
@@ -28,7 +28,7 @@ console.log('');
 
 console.log('моя сортировка пузырьком');
 const t0 = performance.now();
-// const sortedArray = sortingByBubble(sourceArray);
+const sortedArray = sortingByBubble(sourceArray);
 const t1 = performance.now();
 const timeMy = t1 - t0;
 console.log(`${timeMy} ms`);
